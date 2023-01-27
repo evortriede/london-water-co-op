@@ -65,4 +65,23 @@ The WTP has no cell phone or Internet access, so any data transfer between the W
 
 #### Current Recorder
 
-The primary purpose of the `Current Recorder` is to receive LoRa messages from the `Current Monitor` and send them to a `PC or Raspberry Pi` that runs a Java program to record the data permenantly. It also has a HTTP interface for sending `Pump` settings to the `Current Monitor` which forwards them to the `Pump Controller`.
+The primary purpose of the `Current Recorder` is to receive LoRa messages from the `Current Monitor` and send them to a `PC or Raspberry Pi` that runs a Java program to record the data permenantly. It also has a HTTP interface with pages for configuration and for sending `Pump` settings to the `Current Monitor` (via LoRa) which forwards them to the `Pump Controller` (via Telnet).
+
+#### LWC Monitor
+
+The `LWC Monitor` listens in on the LoRa conversation between the `Current Monitor` and `Current Recorder`. It displays summary information (Tank level, Gallons Per Hour and Gallons per day) on the OLED display of its Heltec ESP32 LoRa V2 microcontroller. It sports an RGB LED and a buzzer for other status indications (high water usage, loss of communication). It can function anywhere that the LoRa signal is available (i.e., within a few kilometers of the WTP and `Current Recorder`).  The `LWC Monitor` can join a local WiFi AP and/or act as an AP itself. It has a HTTP interface for configuration and information display. Given a WiFi connection with Internet access, the `LWC Monitor` can send the WTP metrics to a website where it can be accessed from virtually anywhere.
+
+#### Remote Web Server
+
+The current Off Site, setting where the `Current Recorder` lives, is sufficiently firewalled such that it cannot be accessed from the Internet. Since it is desired that status information from the WTP be available from the Internet, an Internet accessible server is required. Virtually any server that can execute a PHP script will suffice and all that is required is the installation of two scripts, one for writing the data and one for retrieving the data. A properly configured instance of the `LWC Monitor` with Internet access will send an HTTP request to execute the script to store the data whenever the data changes and `lwcmon.html` will retrieve the data using the other script.
+
+#### lwcmon.html
+
+This is an HTML document that, when loaded in a browser, displays the status information that `LWC Monitor` stores on the `Remote Web Server`. It is completely transportable and can be used from anywhere that there is Internet access.
+
+#### PC or Raspberry Pi
+
+The `Current Recorder` is probably misnamed in that it doesn't record anything. Instead, it waits for something to make a Telnet connection and then forwards all of the LoRa data over that connection. The 'something' that makes that connection is a Java program running on a computer. That computer is currently a Raspberry Pi but as of 2/1/2023 will be a Windows PC. The Java program stores the LoRa data in files on disk (or SSD). There are other Java programs for processing the data to produce the report that OHA requires.
+
+## Repositories
+
