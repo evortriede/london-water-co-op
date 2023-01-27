@@ -61,3 +61,8 @@ This is a Kamoer DIPump550 peristaltic pump [DIPump550](/assets/Chlorine_Pump_ma
 
 ### Off Site (from the WTP)
 
+The WTP has no cell phone or Internet access, so any data transfer between the WTP and anywhere else is performed using LoRa. Bidirectional data transfer happens between the `Current Monitor` at the WTP and the `Current Recorder` which is Off Site. Other components, primarilly the `LWC Monitor`, listen in on the LoRa conversation and can inject the data into the Internet where it can be accessed remotely.
+
+#### Current Recorder
+
+The primary purpose of the `Current Recorder` is to receive LoRa messages from the `Current Monitor` and send them to a `PC or Raspberry Pi` that runs a Java program to record the data permenantly. It also has a HTTP interface for sending `Pump` settings to the `Current Monitor` which forwards them to the `Pump Controller`.
