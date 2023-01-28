@@ -85,3 +85,33 @@ The `Current Recorder` is probably misnamed in that it doesn't record anything. 
 
 ## Repositories
 
+In Alphabetical order. See the README.md files in each repository for details.
+
+### AsyncLWCMonitor
+
+The `LWC Monitor` firmware and remote server scripts.
+
+### CurrentMonitor
+
+The `Current Monitor` firmware.
+
+### CurrentRecorder
+
+The `Current Recorder` firmware.
+
+### FSM
+
+An Arduino library for a Finite State Machine that is required for the `GenericProtocol` library.
+
+### GenericProtocol
+
+An Arduino library for implementing a very simple protocol to ensure reliable delivery of messages between two endpoints. This protocol is used for all of the LoRa communications.
+
+### LWC_Java
+
+The Java programs for storing the metrics and creating the OHA reports.
+
+### PumpController
+
+The `Pump Controller` firmware.
+
