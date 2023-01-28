@@ -89,11 +89,11 @@ In Alphabetical order. See the README.md files in each repository for details.
 
 ### AsyncLWCMonitor
 
-The `LWC Monitor` firmware and remote server scripts.
+The `LWC Monitor` firmware, hardware design and remote server scripts.
 
 ### CurrentMonitor
 
-The `Current Monitor` firmware.
+The `Current Monitor` firmware and hardware design.
 
 ### CurrentRecorder
 
@@ -113,5 +113,5 @@ The Java programs for storing the metrics and creating the OHA reports.
 
 ### PumpController
 
-The `Pump Controller` firmware.
+The `Pump Controller` firmware and hardware design.
 
