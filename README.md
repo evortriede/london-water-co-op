@@ -115,3 +115,25 @@ The Java programs for storing the metrics and creating the OHA reports.
 
 The `Pump Controller` firmware and hardware design.
 
+## Arduino IDE Setup
+
+The `LWC Monitor`, `Current Monitor` and `Current Recorder` are all based on the Heltec WiFi LoRa 32 V2 development board and the `Pump Controller` is based on the generic ESP32 Dev Board design. All of these are Espressif ESP32 microcontrollers and are programmed using the Arduino IDE. (Note: it was intended that scripts to build all of these repositories using the Arduino CLI would be possible; however, it seems that the CLI is not quite soup yet.) 
+
+### Preferences
+
+In the File > Preferences dialog, add the following to the "Additional Board Manager URLs" list:
+
+```
+https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/releases/download/0.0.5/package_heltec_esp32_index.json
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+```
+
+### Board Manager
+
+In the Tools > Board > Boards Manager... dialog, install the `ESP32` and `Heltec ESP32 Series Dev-boards` packages.
+
+![Arduino Board Manager](/assets/Arduino-board-mgr.png)
+
+## Java SDK
+
+Download and install the latest Java SDK from Oracle.
